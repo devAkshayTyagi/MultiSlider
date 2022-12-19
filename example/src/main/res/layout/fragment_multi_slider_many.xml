@@ -14,80 +14,95 @@
   ~ limitations under the License.
   -->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cl_root"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    tools:context="io.apptik.widget.example.multislider.MultiSliderFragmentSingle"
-    >
-
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingHorizontal="8dp"
+    tools:context="io.apptik.widget.example.multislider.MultiSliderFragmentSingle">
 
     <LinearLayout
+        android:id="@+id/ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""/>
+            android:text="" />
+
         <TextView
             android:id="@+id/value1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
-            android:paddingLeft="10dp"
-            />
+            android:text="" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=" - "/>
+            android:text=" - " />
+
         <TextView
             android:id="@+id/value2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=" - "/>
+            android:text=" - " />
+
         <TextView
             android:id="@+id/value3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=" - "/>
+            android:text=" - " />
+
         <TextView
             android:id="@+id/value4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=" - "/>
+            android:text=" - " />
+
         <TextView
             android:id="@+id/value5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=" - "/>
+            android:text=" - " />
+
         <TextView
             android:id="@+id/value6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=" - "/>
+            android:text=" - " />
+
         <TextView
             android:id="@+id/value7"
             android:layout_width="wrap_content"
@@ -95,13 +110,122 @@
             android:text="" />
     </LinearLayout>
 
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_one"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:background="@drawable/ic_tooltip"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/multiSlider"
+        app:layout_constraintEnd_toEndOf="@+id/view_one"
+        app:layout_constraintStart_toStartOf="@id/multiSlider" />
+
+    <View
+        android:id="@+id/view_one"
+        android:layout_width="1dp"
+        android:layout_height="56dp"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintEnd_toEndOf="@id/multiSlider"
+        app:layout_constraintTop_toTopOf="@+id/multiSlider"
+        app:layout_constraintBottom_toBottomOf="@id/multiSlider"
+        app:layout_constraintStart_toStartOf="@id/multiSlider"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_two"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:background="@drawable/ic_tooltip_down"
+        app:layout_constraintTop_toBottomOf="@+id/multiSlider"
+        app:layout_constraintEnd_toEndOf="@id/view_two"
+        app:layout_constraintStart_toEndOf="@+id/view_one" />
+
+    <View
+        android:id="@+id/view_two"
+        android:layout_width="1dp"
+        android:layout_height="56dp"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintEnd_toEndOf="@id/multiSlider"
+        app:layout_constraintTop_toTopOf="@+id/multiSlider"
+        app:layout_constraintBottom_toBottomOf="@id/multiSlider"
+        app:layout_constraintStart_toStartOf="@id/multiSlider"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_three"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_tooltip"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/multiSlider"
+        app:layout_constraintEnd_toEndOf="@+id/view_three"
+        app:layout_constraintStart_toEndOf="@id/view_two" />
+
+    <View
+        android:id="@+id/view_three"
+        android:layout_width="1dp"
+        android:layout_height="56dp"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintEnd_toEndOf="@id/multiSlider"
+        app:layout_constraintTop_toTopOf="@+id/multiSlider"
+        app:layout_constraintBottom_toBottomOf="@id/multiSlider"
+        app:layout_constraintStart_toStartOf="@id/multiSlider"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_four"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:background="@drawable/ic_tooltip_down"
+        app:layout_constraintEnd_toStartOf="@+id/view_four"
+        app:layout_constraintStart_toEndOf="@id/view_three"
+        app:layout_constraintTop_toBottomOf="@+id/multiSlider" />
+
+    <View
+        android:id="@+id/view_four"
+        android:layout_width="1dp"
+        android:layout_height="56dp"
+        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintEnd_toEndOf="@id/multiSlider"
+        app:layout_constraintTop_toTopOf="@+id/multiSlider"
+        app:layout_constraintBottom_toBottomOf="@id/multiSlider"
+        app:layout_constraintStart_toStartOf="@id/multiSlider"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_five"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_tooltip"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/multiSlider"
+        app:layout_constraintEnd_toEndOf="@+id/view_five"
+        app:layout_constraintStart_toEndOf="@id/view_four" />
+
+    <View
+        android:id="@+id/view_five"
+        android:layout_width="1dp"
+        android:layout_height="56dp"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintEnd_toEndOf="@id/multiSlider"
+        app:layout_constraintTop_toTopOf="@+id/multiSlider"
+        app:layout_constraintBottom_toBottomOf="@id/multiSlider"
+        app:layout_constraintStart_toStartOf="@id/multiSlider"/>
+
     <io.apptik.widget.MultiSlider
         android:id="@+id/multiSlider"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:thumbNumber="7"
+        android:layout_height="56dp"
+        android:thumb="@drawable/thumb"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:stepsThumbsApart="5"
+        app:thumbNumber="5" />
 
-        />
 
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -72,7 +72,7 @@ public class MultiSlider extends View {
          * @param thumb       the thumb that has been selected
          * @param value       the initial value of the thumb before any movement
          */
-        void onStartTrackingTouch(MultiSlider multiSlider, MultiSlider.Thumb thumb, int value);
+        void onStartTrackingTouch(MultiSlider multiSlider, MultiSlider.Thumb thumb, int value,int thumbIndex);
 
         /**
          * This is called when the user either releases his touch or the touch is canceled.
@@ -81,7 +81,7 @@ public class MultiSlider extends View {
          * @param thumb       the thumb that has been selected
          * @param value       the last and remaining value of the thumb after the move completes
          */
-        void onStopTrackingTouch(MultiSlider multiSlider, MultiSlider.Thumb thumb, int value);
+        void onStopTrackingTouch(MultiSlider multiSlider, MultiSlider.Thumb thumb, int value,int thumbIndex);
     }
 
     private AccessibilityNodeProvider mAccessibilityNodeProvider;
@@ -1664,7 +1664,7 @@ public class MultiSlider extends View {
                 invalidate(thumb.getThumb().getBounds());
             }
             if (hasOnTrackingChangeListener()) {
-                mOnTrackingChangeListener.onStartTrackingTouch(this, thumb, thumb.getValue());
+                mOnTrackingChangeListener.onStartTrackingTouch(this, thumb, thumb.getValue(),mThumbs.indexOf(thumb));
             }
             attemptClaimDrag();
         }
@@ -1678,7 +1678,7 @@ public class MultiSlider extends View {
         if (thumb != null) {
             mDraggingThumbs.remove(thumb);
             if (hasOnTrackingChangeListener()) {
-                mOnTrackingChangeListener.onStopTrackingTouch(this, thumb, thumb.getValue());
+                mOnTrackingChangeListener.onStopTrackingTouch(this, thumb, thumb.getValue(),mThumbs.indexOf(thumb));
             }
             if (mDraggingThumbs.size() == 0) {
                 setPressed(false);
@@ -1692,7 +1692,7 @@ public class MultiSlider extends View {
         for (Thumb thumb : mDraggingThumbs) {
             mDraggingThumbs.remove(thumb);
             if (hasOnTrackingChangeListener()) {
-                mOnTrackingChangeListener.onStopTrackingTouch(this, thumb, thumb.getValue());
+                mOnTrackingChangeListener.onStopTrackingTouch(this, thumb, thumb.getValue(),mThumbs.indexOf(thumb));
             }
         }
         setPressed(false);
@@ -1823,11 +1823,11 @@ public class MultiSlider extends View {
         }
 
         @Override
-        public void onStartTrackingTouch(MultiSlider multiSlider, Thumb thumb, int value) {
+        public void onStartTrackingTouch(MultiSlider multiSlider, Thumb thumb, int value,int thumbIndex) {
         }
 
         @Override
-        public void onStopTrackingTouch(MultiSlider multiSlider, Thumb thumb, int value) {
+        public void onStopTrackingTouch(MultiSlider multiSlider, Thumb thumb, int value,int thumbIndex) {
         }
 
     }
